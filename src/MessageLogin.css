@@ -1,0 +1,17 @@
+.MainContainL{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6320EE;
+    height: 20em;
+    width: 25em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+.Tittle{
+    margin-top: 2em;
+    font-size: 2.5em;
+}
+.Description{
+    font-size: 1em;
+}

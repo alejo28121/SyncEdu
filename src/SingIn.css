@@ -1,0 +1,47 @@
+.Main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #6320EE;
+    height: 20em;
+    width: 15em;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.textUserContent{
+    margin-top: 2em;
+}
+.inputUser{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #6520ee;
+}
+.inputUser::placeholder{
+    color: #e6e7e7;
+}
+.passwordContent{
+    margin-top: 1em;
+}
+.inputPassword{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #6320EE;
+}
+.inputPassword::placeholder{
+    color: #e6e7e7;
+}
+.createContent{
+    margin-top: 1em;
+}
+.CreteAccount{
+    font-size: 2.5vh;
+    color: #c2c2c2; 
+    text-decoration: none;
+}
