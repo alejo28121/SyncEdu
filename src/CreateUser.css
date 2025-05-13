@@ -1,0 +1,67 @@
+.MainC{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #6320EE;
+    height: 20em;
+    width: 15em;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.textUserContentC{
+    margin-top: 1em;
+}
+.inputName{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #6520ee;
+}
+.inputName::placeholder{
+    color: #e6e7e7;
+}
+.lastNameContent{
+    margin-top: 1em;
+}
+.inputLasName{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #6520ee;
+}
+.inputLasName::placeholder{
+    color: #e6e7e7;
+}
+.codeContent{
+    margin-top: 1em;
+}
+.inputCode{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #6520ee;
+}
+.inputCode::placeholder{
+    color: #e6e7e7;
+}
+.passwordContentC{
+    margin-top: 1em;
+}
+.inputPasswordC{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #6320EE;
+}
+.inputPasswordC::placeholder{
+    color: #e6e7e7;
+}
