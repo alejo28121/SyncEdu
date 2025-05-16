@@ -18,7 +18,7 @@
     border: none;
     border-radius: 1vh;
     padding-left: 1em;
-    background-color: #6520ee;
+    background-color: #8075FF;
 }
 .inputName::placeholder{
     color: #e6e7e7;
@@ -32,7 +32,7 @@
     border: none;
     border-radius: 1vh;
     padding-left: 1em;
-    background-color: #6520ee;
+    background-color: #8075FF;
 }
 .inputLasName::placeholder{
     color: #e6e7e7;
@@ -46,7 +46,7 @@
     border: none;
     border-radius: 1vh;
     padding-left: 1em;
-    background-color: #6520ee;
+    background-color: #8075FF;
 }
 .inputCode::placeholder{
     color: #e6e7e7;
@@ -60,8 +60,19 @@
     border: none;
     border-radius: 1vh;
     padding-left: 1em;
-    background-color: #6320EE;
+    background-color: #8075FF;
 }
 .inputPasswordC::placeholder{
+    color: #e6e7e7;
+}
+.inputEmail{
+    width: 40vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1em;
+    background-color: #8075FF;
+}
+.inputEmail::placeholder{
     color: #e6e7e7;
 }

@@ -12,14 +12,15 @@ function Login({setValue}){
             <div className="passwordContent">
                 <input className="inputPassword" placeholder="Contraseña"></input>
             </div>
+            <div className="buttonContent">
+                <button className="ButtonIn">Ingresar</button>
+            </div>
             <div className="createContent">
+                <h3 className='questionText'>Aun no tienes cuenta?</h3>
                 <a className="CreteAccount" href="#" onClick={(e) => {
                     e.preventDefault();
                     setValue(0); 
                 }}>Registrar</a>
-            </div>
-            <div className="buttonContent">
-                <button className="ButtonIn">Ingresar</button>
             </div>
         </div>
     );

@@ -18,7 +18,7 @@
     border: none;
     border-radius: 1vh;
     padding-left: 1em;
-    background-color: #6520ee;
+    background-color: #8075FF;
 }
 .inputUser::placeholder{
     color: #e6e7e7;
@@ -32,16 +32,35 @@
     border: none;
     border-radius: 1vh;
     padding-left: 1em;
-    background-color: #6320EE;
+    background-color: #8075FF;
 }
 .inputPassword::placeholder{
     color: #e6e7e7;
 }
 .createContent{
+    display: flex;
+    flex-direction: row;
     margin-top: 1em;
+    align-items: center;
 }
 .CreteAccount{
-    font-size: 2.5vh;
+    font-size: 2vh;
     color: #c2c2c2; 
     text-decoration: none;
+}
+.questionText{
+    color: #c2c2c2; 
+    font-size: 2vh;
+    margin-right: 1vh;
+}
+.buttonContent{
+    padding-top: 1em;
+}
+.ButtonIn{
+    width: 42vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    background-color: #6520ee;
+    color: #c2c2c2; 
 }

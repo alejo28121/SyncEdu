@@ -15,7 +15,7 @@ function RenderAuth ({value, setValue}){
         return(
             <div className='MainContent'>
                 <LoginLeft/> 
-                <CreateUser/>
+                <CreateUser setValue={setValue}/>
             </div>
         );
     }

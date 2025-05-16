@@ -1,27 +1,28 @@
+import { useState } from 'react';
 import './CreateUser.css'
+import AddName from './CreateName';
+import AddEmail  from './AddEmail';
 
-function CreateUser(){
-    return(
-        <div className="MainC">
-            <div className="textUserContentC">
-                <h2 className='createAccount'>Crear Usuario</h2>
+function CreateUser({setValue}){
+    const [stepValue, setStepValue] = useState (1);
+    if (stepValue === 1){
+        return(
+            <div className="MainC">
+                <div className="textUserContentC">
+                    <h2 className='createAccount'>Crear Usuario</h2>
+                </div>
+                <AddName setStepValue={setStepValue}/>
             </div>
-            <div className="nameContent">
-                <input className="inputName" placeholder="Nombre"></input>
+        );
+    }else{
+        return(
+            <div className="MainC">
+                <div className="textUserContentC">
+                    <h2 className='createAccount'>Crear Usuario</h2>
+                </div>
+                <AddEmail setValue={setValue}/>
             </div>
-            <div className="lastNameContent">
-                <input className="inputLasName" placeholder="Apellido"></input>
-            </div>
-            <div className="codeContent">
-                <input className="inputCode" placeholder="Codigo de vinculación"></input>
-            </div>
-            <div className="passwordContentC">
-                <input className="inputPasswordC" placeholder="Contraseña"></input>
-            </div>
-            <div className="buttonContent">
-                <button className="ButtonIn">Crear</button>
-            </div>
-        </div>
-    );
+        )
+    }
 }
 export default CreateUser;
