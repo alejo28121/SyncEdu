@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import './App.css';
-import RenderAuth from './AuthPage.js';
+import './assets/App.css';
+import RenderAuth from './pages/AuthPage.js';
 
 function App() {
   const [authValue, setAuthValue] = useState(1); 
