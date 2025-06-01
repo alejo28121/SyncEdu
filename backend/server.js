@@ -23,8 +23,29 @@ connection.connect(err => {
     console.log('Conectado a MySQL!');
 });
 
-app.get('/login', (req, res) => {
-    res.send('Servidor funcionando');
+app.post('/login', (req, res) => {
+    const {user, password} = req.body;
+    const query = 'SELECT passwordValue FROM users WHERE email = ?'
+    connection.query(query, [user], (error, result) => {
+        const hash = result[0].passwordValue;
+        if (error) {
+            console.error(error);
+            res.status(500).send('Error al buscar el usuario');
+            return;
+        }
+        bcrypt.compare(password, hash, (err, resp) => {
+            if (err) {
+                console.error(error);
+                res.status(500).send('Error al comparar passwords');
+                return;
+            }
+            if(resp){
+                console.log('acceso permitido');
+            }else{
+                console.log('acceso denegado');
+            }
+        });
+    });
 });
 app.post('/create-user', (req, res) => {
     const {name, lastName, email, vinculationCode, password} = req.body;
