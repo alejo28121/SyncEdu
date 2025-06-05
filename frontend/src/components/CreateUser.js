@@ -14,7 +14,7 @@ function CreateUser({setValue}){
     });
     useEffect(() => {
         if(stepValue === 3){
-            fetch('http://192.168.43.180:5000/create-user', {
+            fetch('http://localhost:5000/create-user', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

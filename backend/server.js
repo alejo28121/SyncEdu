@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 5000;
 const mysql = require('mysql2');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const mail = require('@sendgrid/mail');
+require('dotenv').config();
+const PORT = 5000;
+
 
 app.use(express.json());
 app.use(cors());
@@ -53,7 +56,7 @@ app.post('/create-user', (req, res) => {
     const query = 'INSERT INTO users (name, lasName, email, vinculationCode, passwordValue) VALUES (?, ?, ?, ?, ?)';
     bcrypt.hash(password, saltRounds, (err, hash) => {
         if(err){
-            console.error('Error al hashear el password: ', err);
+            return console.error('Error al hashear el password: ', err);
         };
         connection.query(query, [name, lastName, email, vinculationCode, hash], (error, results) => {
             if (error) {
@@ -61,7 +64,26 @@ app.post('/create-user', (req, res) => {
                 res.status(500).send('Error al insertar usuario');
                 return;
             }
-            res.status(201).send(`Usuario insertado con ID: ${results.insertId}`);
+            console.log('usuario insertado'); 
+            const mensage = {
+                to: email,
+                from: 'grajalesvargasalejandro@gmail.com',
+                templateId: 'd-a713cb480a2345ba81d860100ff2349e',
+                subject: 'Verificacion de correo',
+                dynamic_template_data: {
+                    Sender_Name: name,
+                }
+            };
+            mail.setApiKey(process.env.SENDGRID_API_KEY);
+            mail.send(mensage)
+                .then(() => {
+                    console.log('email enviado'); 
+                    return res.status(201).send('Email enviado');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    return res.status(500).send('Usuario creado, pero falló el envío del correo');
+                });
         });
     });
 });
