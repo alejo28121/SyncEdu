@@ -8,7 +8,7 @@ function Login({setValue}){
     }); 
     const sendDates = (e) => {
         e.preventDefault();
-        fetch('http://192.168.43.180:5000/login', {
+        fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

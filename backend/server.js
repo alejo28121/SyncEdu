@@ -4,6 +4,7 @@ const app = express();
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const mail = require('@sendgrid/mail');
+const {v4: uuidv4} = require('uuid');
 require('dotenv').config();
 const PORT = 5000;
 
@@ -52,13 +53,15 @@ app.post('/login', (req, res) => {
 });
 app.post('/create-user', (req, res) => {
     const {name, lastName, email, vinculationCode, password} = req.body;
+    const token = uuidv4();
     const saltRounds = 12;
-    const query = 'INSERT INTO users (name, lasName, email, vinculationCode, passwordValue) VALUES (?, ?, ?, ?, ?)';
-    bcrypt.hash(password, saltRounds, (err, hash) => {
+    const experitationTime = new Date(Date.now() + 1 * 60 * 1000);
+    const query = 'INSERT INTO users (name, lasName, email, vinculationCode, passwordValue, verificationToken, timeExperitation, verificate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    bcrypt.hash(password, saltRounds, (err, hashPassword) => {
         if(err){
             return console.error('Error al hashear el password: ', err);
         };
-        connection.query(query, [name, lastName, email, vinculationCode, hash], (error, results) => {
+        connection.query(query, [name, lastName, email, vinculationCode, hashPassword, token, experitationTime, false], (error, results) => {
             if (error) {
                 console.error(error);
                 res.status(500).send('Error al insertar usuario');
@@ -72,6 +75,7 @@ app.post('/create-user', (req, res) => {
                 subject: 'Verificacion de correo',
                 dynamic_template_data: {
                     Sender_Name: name,
+                    link: `http://localhost:5000/verificate-email?token=${token}`,
                 }
             };
             mail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -85,6 +89,36 @@ app.post('/create-user', (req, res) => {
                     return res.status(500).send('Usuario creado, pero falló el envío del correo');
                 });
         });
+    });
+});
+app.get('/verificate-email', (req, res) => {
+    const token = req.query.token;
+    const searchQuery = 'SELECT verificationToken FROM users WHERE verificationToken = ? AND verificate = false';
+    const updateQuery = 'UPDATE users SET verificationToken = NULL, verificate = 1, timeExperitation = NULL WHERE verificationToken = ?';
+    if (!token){
+        return res.status(400).send('Bad request');
+    };
+    connection.query(searchQuery, [token], (error, result) => {
+        if (error) {
+            console.error(error);
+            res.status(500).send('Error al buscar el token');
+            return;
+        }
+        console.log(result);
+        if (!Array.isArray(result) || result.length === 0){
+            console.log('token invalido');
+            return res.status(401).send('token invalido');
+        } else{
+            connection.query(updateQuery, [token], (err, result) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send('Error al actualizar el token');
+                    return;
+                }
+                console.log('encontrado y vericado');
+                return res.status(200).send('encontrado y vericado');
+            });
+        }
     });
 });
 app.listen(PORT, '0.0.0.0', () => {
