@@ -2,22 +2,14 @@ import LoginLeft from '../components/MessageLogin.js'
 import Login from '../components/SingIn.js'
 import '../assets/AuthPage.css';
 import CreateUser from '../components/CreateUser.js';
+import { Outlet } from 'react-router-dom';
 
-function RenderAuth ({value, setValue}){
-    if (value === 1){
-        return(
-            <div className='MainContent'>
-                <LoginLeft/> 
-                <Login setValue={setValue}/>
-            </div>
-        );
-    }else{
-        return(
-            <div className='MainContent'>
-                <LoginLeft/> 
-                <CreateUser setValue={setValue}/>
-            </div>
-        );
-    }
+function RenderAuth (){
+    return(
+        <div className='MainContent'>
+            <LoginLeft/> 
+            <Outlet/>
+        </div>
+    );
 }
 export default RenderAuth;

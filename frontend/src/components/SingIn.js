@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
-import '../assets/SingIn.css'
+import '../assets/SingIn.css';
+import { Link } from 'react-router-dom';
 
-function Login({setValue}){
+function Login(){
     const [datesValue, setdatesValue] = useState({
         user: '',
         password: '',
@@ -44,10 +45,7 @@ function Login({setValue}){
             </form>
             <div className="createContent">
                 <h3 className='questionText'>Aun no tienes cuenta?</h3>
-                <a className="CreteAccount" href="#" onClick={(e) => {
-                    e.preventDefault();
-                    setValue(0); 
-                }}>Registrar</a>
+                <Link className="CreteAccount" to="/Auth/Register">Registrar</Link>
             </div>
         </div>
     );

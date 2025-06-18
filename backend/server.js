@@ -56,12 +56,21 @@ app.post('/create-user', (req, res) => {
     const token = uuidv4();
     const saltRounds = 12;
     const experitationTime = new Date(Date.now() + 1 * 60 * 1000);
-    const query = 'INSERT INTO users (name, lasName, email, vinculationCode, passwordValue, verificationToken, timeExperitation, verificate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO users (userName, name, lastName, email, vinculationCode, passwordValue, verificationToken, timeExperitation, verified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    function VerificateUser(createUser){
+        const verificateQuery = 'SELECT userName FROM users WHERE userName = ?'
+    }
+    function CreateUser(names, lastNames){
+        return `${name.trim().split(/\s+/)[0]}.${lastName.trim().split(/\s+/)[0]}`
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .toLowerCase();
+    }
     bcrypt.hash(password, saltRounds, (err, hashPassword) => {
         if(err){
             return console.error('Error al hashear el password: ', err);
-        };
-        connection.query(query, [name, lastName, email, vinculationCode, hashPassword, token, experitationTime, false], (error, results) => {
+        }
+        connection.query(query, [user, name, lastName, email, vinculationCode, hashPassword, token, experitationTime, false], (error, results) => {
             if (error) {
                 console.error(error);
                 res.status(500).send('Error al insertar usuario');
@@ -93,31 +102,33 @@ app.post('/create-user', (req, res) => {
 });
 app.get('/verificate-email', (req, res) => {
     const token = req.query.token;
-    const searchQuery = 'SELECT verificationToken FROM users WHERE verificationToken = ? AND verificate = false';
-    const updateQuery = 'UPDATE users SET verificationToken = NULL, verificate = 1, timeExperitation = NULL WHERE verificationToken = ?';
+    const searchQuery = 'SELECT verificationToken, timeExperitation FROM users WHERE verificationToken = ? AND verified = false';
+    const updateQuery = 'UPDATE users SET verificationToken = NULL, verified = 1, timeExperitation = NULL WHERE verificationToken = ?';
     if (!token){
         return res.status(400).send('Bad request');
-    };
+    }
     connection.query(searchQuery, [token], (error, result) => {
         if (error) {
             console.error(error);
-            res.status(500).send('Error al buscar el token');
-            return;
+            return res.status(404).send('Error al buscar el token');
         }
         console.log(result);
         if (!Array.isArray(result) || result.length === 0){
             console.log('token invalido');
-            return res.status(401).send('token invalido');
-        } else{
+            return res.status(403).send('token invalido');
+        }
+        const expirationTime = new Date(result[0].timeExperitation);
+        if (Date.now() <= expirationTime){
             connection.query(updateQuery, [token], (err, result) => {
                 if (err) {
                     console.error(err);
-                    res.status(500).send('Error al actualizar el token');
-                    return;
+                    return res.status(500).send('Error al actualizar el token');
                 }
                 console.log('encontrado y vericado');
                 return res.status(200).send('encontrado y vericado');
             });
+        }else{
+            return res.status(410).send('token expirado');
         }
     });
 });

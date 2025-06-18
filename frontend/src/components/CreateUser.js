@@ -3,7 +3,7 @@ import '../assets/CreateUser.css'
 import AddName from './CreateName';
 import AddEmail  from './AddEmail';
 
-function CreateUser({setValue}){
+function CreateUser(){
     const [stepValue, setStepValue] = useState (1);
     const [datesValue, setDatesValue] = useState ({
         name: '',
