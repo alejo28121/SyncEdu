@@ -1,6 +1,8 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import '../assets/SingIn.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import '../assets/visibility_off.svg';
+import '../assets/visibility.svg';
 
 function Login(){
     const [datesValue, setdatesValue] = useState({
@@ -17,6 +19,14 @@ function Login(){
             body: JSON.stringify(datesValue)
         });
     };
+    function ChangePasswordView(){
+        const input = document.getElementById("inputPassword");
+        if(input.type === "password"){
+            input.type = "text";
+        }else{
+            input.type = "password";
+        }
+    }
     return( 
         <div className="Main">
             <div className="textUserContent">
@@ -32,12 +42,13 @@ function Login(){
                     } required></input>
                 </div>
                 <div className="passwordContent">
-                    <input type='password' className="inputPassword" placeholder="Contraseña" onChange={(e) =>
+                    <input type='password' className="inputPassword" id="inputPassword" placeholder="Contraseña" onChange={(e) =>
                         setdatesValue(prev => ({
                             ...prev,
                             password: e.target.value
                         }))
                     } required></input>
+                    <button className='viewPassword' onClick={ChangePasswordView}><svg viewBox="0 0 300 100" xm></svg></button>
                 </div>
                 <div className="buttonContent">
                     <button className="ButtonIn" type='submit'>Ingresar</button>
