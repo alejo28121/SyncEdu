@@ -42,7 +42,10 @@
     position: absolute;
     z-index: 1;
     right: 1em;
-    top: 0.7em;
+    top: 0.4em;
+    background-color: #8075FF;
+    border: none;
+    cursor: pointer;
 }
 .createContent{
     display: flex;
@@ -70,4 +73,5 @@
     border-radius: 1vh;
     background-color: #6520ee;
     color: #ffffff; 
+    cursor: pointer;
 }

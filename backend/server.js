@@ -5,9 +5,9 @@ const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
 const mail = require('@sendgrid/mail');
 const {v4: uuidv4} = require('uuid');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const PORT = 5000;
-
 
 app.use(express.json());
 app.use(cors());
@@ -16,10 +16,10 @@ let connection;
 (async () => {
     try {
         connection = await mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'A2572007',
-        database: 'users'
+        host: process.env.DBHOST,
+        user: process.env.DBUSER,
+        password: process.env.DBPASSWORD,
+        database: process.env.DB
         });
         console.log('Conectado a MySQL!');
     } catch (err) {
@@ -29,10 +29,15 @@ let connection;
 
 app.post('/login', async(req, res) => {
     const {user, password} = req.body;
-    const query = 'SELECT passwordValue FROM users WHERE userName = ?';
+    const query = 'SELECT passwordValue, email, id FROM users WHERE userName = ?';
     try{
         const [result] = await connection.execute(query, [user]);
         const hash = result[0].passwordValue;
+        const payload = {
+            id: result[0].id,
+            user: result[0].userName
+        }; 
+        const jwtKey = process.env.JWTKEY;
         bcrypt.compare(password, hash, (err, resp) => {
             if (err) {
                 console.error(err);
@@ -40,8 +45,10 @@ app.post('/login', async(req, res) => {
             }
             if(resp){
                 console.log('acceso permitido');
+                return res.send(JSON.stringify(jwt.sign(payload, jwtKey, {expiresIn: '1h'})));
             }else{
                 console.log('acceso denegado');
+                return res.status(401).send(JSON.stringify('acceso denegado'));
             }
         });
     }catch(error){
@@ -92,8 +99,8 @@ app.post('/create-user', (req, res) => {
             console.log('usuario insertado'); 
             const mensage = {
                 to: email,
-                from: 'grajalesvargasalejandro@gmail.com',
-                templateId: 'd-a713cb480a2345ba81d860100ff2349e',
+                from: process.env.EMAIL,
+                templateId: process.env.EMAILTEMPLATEID,
                 subject: 'Verificacion de correo',
                 dynamic_template_data: {
                     Sender_Name: name,

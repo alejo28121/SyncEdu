@@ -1,9 +1,9 @@
-import {useState} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './assets/App.css';
 import RenderAuth from './pages/AuthPage.js';
 import Login from './components/SingIn.js';
 import CreateUser from './components/CreateUser.js';
+import Dashboard from './pages/DashboardPage.js';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
               <Route path="login" element={<Login/>}/>
               <Route path='register' element={<CreateUser/>}/>
             </Route>
+            <Route path='dashboard' element={<Dashboard/>}/>
           </Routes>
         </header>
       </div>
