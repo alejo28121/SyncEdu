@@ -1,6 +1,12 @@
-.MainContent{
+.MainContent-Auth{
     display: flex;
     flex-direction: row;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-color: #F0F3F5;
+    min-height: 100vh;
     border-radius: 1em;
+    align-items: center;
+    justify-content: center;
     box-shadow: 10px 10px 20px rgba( 0, 0, 0, 0.3);
 }

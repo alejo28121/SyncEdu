@@ -29,14 +29,17 @@ let connection;
 
 app.post('/login', async(req, res) => {
     const {user, password} = req.body;
-    const query = 'SELECT passwordValue, email, id FROM users WHERE userName = ?';
+    const query = 'SELECT passwordValue, email, userName, name, lastName FROM users WHERE userName = ?';
     try{
         const [result] = await connection.execute(query, [user]);
         const hash = result[0].passwordValue;
         const payload = {
             id: result[0].id,
-            user: result[0].userName
+            user: result[0].userName,
+            name: result[0].name,
+            lastName: result[0].lastName,
         }; 
+        console.log(result[0]);
         const jwtKey = process.env.JWTKEY;
         bcrypt.compare(password, hash, (err, resp) => {
             if (err) {
@@ -108,6 +111,7 @@ app.post('/create-user', (req, res) => {
                 }
             };
             mail.setApiKey(process.env.SENDGRID_API_KEY);
+            console.log(email);
             mail.send(mensage)
                 .then(() => {
                     console.log('email enviado'); 

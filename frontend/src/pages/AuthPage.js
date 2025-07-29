@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 function RenderAuth (){
     return(
-        <div className='MainContent'>
+        <div className='MainContent-Auth'>
             <LoginLeft/> 
             <Outlet/>
         </div>

@@ -1,5 +1,4 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import './assets/App.css';
 import RenderAuth from './pages/AuthPage.js';
 import Login from './components/SingIn.js';
 import CreateUser from './components/CreateUser.js';

@@ -24,7 +24,7 @@ function Login(){
             });
             if(response.status === 200){
                 const data = await response.json();
-                console.log(data);
+                localStorage.setItem('token', data);
                 navigate('/dashboard');
             }else{
                 console.log("usuario invalido");
