@@ -29,7 +29,7 @@ let connection;
 
 app.post('/login', async(req, res) => {
     const {user, password} = req.body;
-    const query = 'SELECT passwordValue, email, userName, name, lastName FROM users WHERE userName = ?';
+    const query = 'SELECT passwordValue, email, userName, name, lastName FROM users WHERE verified = true AND userName = ?';
     try{
         const [result] = await connection.execute(query, [user]);
         const hash = result[0].passwordValue;
@@ -111,7 +111,7 @@ app.post('/create-user', (req, res) => {
                 }
             };
             mail.setApiKey(process.env.SENDGRID_API_KEY);
-            console.log(email);
+            console.log(mensage);
             mail.send(mensage)
                 .then(() => {
                     console.log('email enviado'); 
