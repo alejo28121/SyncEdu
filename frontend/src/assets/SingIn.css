@@ -26,6 +26,8 @@
 .passwordContent{
     margin-top: 1em;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 .inputPassword{
     width: 40vh;
@@ -42,7 +44,6 @@
     position: absolute;
     z-index: 1;
     right: 1em;
-    top: 0.4em;
     background-color: #8075FF;
     border: none;
     cursor: pointer;
