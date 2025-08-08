@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import '../assets/SingIn.css';
-import {Link} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import visivilityOffIcon from '../assets/visibility_off.svg';
 import visivilityIcon from'../assets/visibility.svg';
 

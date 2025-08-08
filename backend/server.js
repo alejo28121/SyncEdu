@@ -29,7 +29,7 @@ let connection;
 
 app.post('/login', async(req, res) => {
     const {user, password} = req.body;
-    const query = 'SELECT passwordValue, email, userName, name, lastName FROM users WHERE verified = true AND userName = ?';
+    const query = 'SELECT passwordValue, email, userName, name, lastName, vinculationCode FROM users WHERE verified = true AND userName = ?';
     try{
         const [result] = await connection.execute(query, [user]);
         const hash = result[0].passwordValue;
@@ -38,6 +38,7 @@ app.post('/login', async(req, res) => {
             user: result[0].userName,
             name: result[0].name,
             lastName: result[0].lastName,
+            institution: result[0].vinculationCode
         }; 
         console.log(result[0]);
         const jwtKey = process.env.JWTKEY;
@@ -66,7 +67,7 @@ app.post('/create-user', (req, res) => {
     const experitationTime = new Date(Date.now() + 1 * 60 * 1000);
     const query = 'INSERT INTO users (userName, name, lastName, email, vinculationCode, passwordValue, verificationToken, timeExperitation, verified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     async function VerificateUser(createUser){
-        const verificateQuery = 'SELECT userName FROM users WHERE userName = ?'
+        const verificateQuery = 'SELECT userName FROM users WHERE userName = ?';
         try{
             const [result] = await connection.execute(verificateQuery, [createUser]);
             if(result.length > 0){
@@ -156,6 +157,18 @@ app.get('/verificate-email', async(req, res) => {
     }catch(error){
         console.error(error);
         return res.status(404).send('Error al buscar el token');
+    }
+});
+app.post('/schedule', async(req, res) => {
+    const {code, grade} = req.body;
+    console.log(req.body);
+    const query = 'SELECT users.name, users.lastName, schedules.weekDay, schedules.startDayTime, schedules.endDayTime, schedules.duration, schedules.Subject FROM schedules JOIN users ON schedules.teacherId = users.userName WHERE InstitutionCode = ? AND grade = ?';
+    try{
+        const [result] = await connection.execute(query, [code, grade]);
+        console.log([result]);
+        return res.status(200).json(result);
+    }catch(error){
+        console.error(error);
     }
 });
 app.listen(PORT, '0.0.0.0', () => {

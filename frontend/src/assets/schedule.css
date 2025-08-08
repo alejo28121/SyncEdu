@@ -1,0 +1,66 @@
+.Schedule-container{
+    height: calc(100vh - 24vh);
+    width: calc(100vw - 20vw);
+    border-radius: 2vh;
+    background-color: #1a2045;
+    margin: 2vh;
+    padding-left: 4vw;
+    padding-right: 8vw;
+    padding-bottom: 4vh;
+    padding-top: 4vh;
+    display: flex;
+    box-sizing: border-box;
+}
+.Main-hour-container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #0b1437;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 0.6fr repeat(6, 1fr);
+    grid-template-rows: repeat(13, 1fr);
+    gap: 2px;
+    padding-right: 0.5vh;
+
+}
+.Hour-container{
+    background-color: #1a2045;
+    z-index: 55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Hour-container1{
+    z-index: 55;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 1vh;
+    font-size: 2vh;
+    padding: 1vh;
+    gap: 1vh;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.Top-hour-container{
+    background-color: #1a2045;
+    grid-column: span 6;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(6, 1fr);
+}
+.Left-hour-container{
+    background-color: #1a2045;
+    grid-row: span 13;
+    display: grid;
+    grid-template-rows: 13;
+    text-align: right;
+    align-items: end;
+    padding-right: 1vw;
+    padding-top: 1vh;
+    font-size: 2vh;
+}
