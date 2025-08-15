@@ -3,6 +3,7 @@ import RenderAuth from './pages/AuthPage.js';
 import Login from './components/SingIn.js';
 import CreateUser from './components/CreateUser.js';
 import Dashboard from './pages/DashboardPage.js';
+import Schedule from './components/schedule.js';
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
               <Route path="login" element={<Login/>}/>
               <Route path='register' element={<CreateUser/>}/>
             </Route>
-            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='/dashboard/' element={<Dashboard/>}>
+              <Route path='schedule' element={<Schedule/>}/>
+            </Route>
           </Routes>
         </header>
       </div>

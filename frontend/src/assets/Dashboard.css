@@ -5,14 +5,18 @@
     display: flex;
     flex-direction: row;
     color: #f2f1ff;
+    background-color: #000028;
 }
 .Container-sidebar{
     background-color: #111c44;
-    width: 15vw;
-    height: 100vh;
+    width: 14vw;
+    height: 96vh;
     z-index: 100;
-    left: 0;
     position: fixed;
+    border-radius: 2vh;
+    margin-left: 1vw;
+    margin-top: 2vh;
+    box-sizing: border-box;
 }
 .Main-container-sidebar{
     display: flex;
@@ -23,20 +27,74 @@
     width: calc(100vw - 15vw);
 }
 .Side-components-container{
-    width: 15vw;
+    width: 12vw;
     display: flex;
     flex-direction: column;
+    align-items: end;
+    margin-left: 2vw
+}
+.Select-component{
+    width: 12vw;
+    height: 15vh;
+    position: absolute;
+    z-index: 10;
+    top: 20vh;
+    background-color: #000028;
+}
+.Upper-select{
+    width: 12vw;
+    height: 5vh;
+    border-bottom-right-radius: 2vh;
+    background-color: #111c44;
+}
+.Medium-select{
+    width: 12vw;
+    height: 5vh;
+    border-top-left-radius: 2vh;
+    border-bottom-left-radius: 2vh;
+    box-shadow: -3vh 0 0 1vh #111c44;
+    background-color: #000028;
+}
+.Low-select{
+    width: 12vw;
+    height: 5vh;
+    border-top-right-radius: 2vh;
+    background-color: #111c44;
 }
 .Schedule-access{
+    width: 12vw;
+    height: 5vh;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 .Schedule-icon{
+    z-index: 11;
     height: 3vh;
     padding-left: 2.5vw;
     padding-right: 0.5vw;
 }
 .Schedule-text{
+    z-index: 11;
+    font-size: 2.7vh;
+}
+.Task-access{
+    width: 12vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.Task-icon{
+    z-index: 11;
+    height: 3vh;
+    padding-left: 2.5vw;
+    padding-right: 0.5vw;
+}
+.Task-text{
+    z-index: 11;
     font-size: 2.7vh;
 }
 .Container-navbar{
@@ -91,7 +149,7 @@
     width: 64vw;
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
-    margin-left: calc(100vw - 57vw);
+    margin-left: calc(100vw - 50vw);
     margin-right: 2vh;
     border-radius: 5vh;
     padding-left: 2vh;

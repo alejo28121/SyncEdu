@@ -3,22 +3,41 @@ import '../assets/Dashboard.css';
 import search from '../assets/search.svg';
 import scheduleIcon from '../assets/Schedule_sidebar.svg';
 import ligth from '../assets/light_mode.svg';
+import toDoIcon from '../assets/To-do-list.svg';
 import { useState } from 'react';
 import Schedule from '../components/schedule';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 function Dashboard(){
     const dates = jwtDecode(localStorage.getItem('token'));
     const nameLetters = dates.name[0] + dates.lastName[0];
     console.log(dates);
     const [scrollState, setScrollState] = useState(false);
+    const [activeTab, setActiveTab] = useState(0);
+    const navigate = useNavigate();
     return(
         <div className='Main-container-dashboard'>
             <div className='Container-sidebar'>
                 <div className='Name-container'><span className='Name-span'>SyncEdu</span></div>
                 <div className='Side-components-container'>
-                    <div className='Schedule-access'>
+                    <div className='Select-component'>
+                        <div className='Upper-select'></div>
+                        <div className='Medium-select'></div>
+                        <div className='Low-select'></div>
+                    </div>
+                    <div className='Schedule-access' onClick={() => {
+                        navigate('/Dashboard/Schedule');
+                        }
+                    }>
                         <img className='Schedule-icon' src={scheduleIcon}></img>
                         <a className='Schedule-text'>Horario</a>
+                    </div>
+                    <div className='Task-access' onClick={() => {
+                        navigate('/Dashboard/Schedule');
+                        }
+                    }>
+                        <img className='Task-icon' src={toDoIcon}></img>
+                        <a className='Task-text'>Tareas</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +59,7 @@ function Dashboard(){
                 <div className='Container-tools' onScroll={(e) => {
                     setScrollState(e.target.scrollTop > 36);
                 }}>
-                    <Schedule/>
+                    <Outlet/>
                 </div>
             </div>
         </div>
