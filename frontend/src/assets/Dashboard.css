@@ -34,32 +34,22 @@
     margin-left: 2vw
 }
 .Select-component{
-    width: 12vw;
     height: 15vh;
     position: absolute;
     z-index: 10;
-    top: 20vh;
-    background-color: #000028;
 }
 .Upper-select{
-    width: 12vw;
     height: 5vh;
     border-bottom-right-radius: 2vh;
-    background-color: #111c44;
 }
 .Medium-select{
-    width: 12vw;
     height: 5vh;
     border-top-left-radius: 2vh;
     border-bottom-left-radius: 2vh;
-    box-shadow: -3vh 0 0 1vh #111c44;
-    background-color: #000028;
 }
 .Low-select{
-    width: 12vw;
     height: 5vh;
     border-top-right-radius: 2vh;
-    background-color: #111c44;
 }
 .Schedule-access{
     width: 12vw;
