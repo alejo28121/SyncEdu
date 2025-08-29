@@ -27,7 +27,7 @@
     background: #1a2045;
 }
 .List-container::-webkit-scrollbar-thumb{
-    background: #aaa9bc;
+    background: #f9f8ff;
     border-radius: 1vh;
     height: 4vh;
 }
@@ -40,12 +40,48 @@
     align-items: center;
     padding: 1vw;
     background-color: #0b1437;
+    transition: transform 0.3s ease;
+}
+.List-item:hover{
+    transform: scale(1.02);
 }
 .Check-div{
     width: 3vh;
     height: 3vh;
     border-radius: 50%;
-    background-color: #1a2045;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1e6;
+    transition: transform 0.3s ease;
+}
+.Check-div:hover{
+    transform: scale(1.1);
+}
+.Circle-check{
+    background-color: #0b1437;
+    width: 2.3vh;
+    height: 2.3vh;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.Circle-checked{
+    background-color: #00b38b;
+    width: 2.3vh;
+    height: 2.3vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.img-check{
+    display: none;
+}
+.img-checked{
+    display: flex;
+    width: 3vh;
+    height: auto;
 }
 .Info-task-container{
     width: calc(100% - 12vw);
@@ -74,10 +110,10 @@
     font-size: 2.4vh;
 }
 .Circle-state{
-    background-color: #fdb15a;
     height: 3vh;
     width: 3vh;
     border-radius: 50%;
+    cursor: pointer;
 }
 .Info-container{
     width: 16vw;
@@ -100,7 +136,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #00c6c3;
+    background-color: #7b88f2;
+    transition: transform 0.3s ease;
+}
+.Button-add:hover{
+    transform: scale(1.05);
 }
 .Add-icon{
     width: 3vw;

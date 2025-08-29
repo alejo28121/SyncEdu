@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2/promise');              
 const bcrypt = require('bcrypt');
 const mail = require('@sendgrid/mail');
 const {v4: uuidv4} = require('uuid');
@@ -21,9 +21,9 @@ let connection;
         password: process.env.DBPASSWORD,
         database: process.env.DB
         });
-        console.log('Conectado a MySQL!');
+        console.log('Conectado a la base de datos');
     } catch (err) {
-        console.error('Error conectando a MySQL:', err);
+        console.error('Error conectando a la base de datos:', err);
     }
 })();
 
@@ -40,7 +40,6 @@ app.post('/login', async(req, res) => {
             lastName: result[0].lastName,
             institution: result[0].vinculationCode
         }; 
-        console.log(result[0]);
         const jwtKey = process.env.JWTKEY;
         bcrypt.compare(password, hash, (err, resp) => {
             if (err) {
@@ -165,10 +164,20 @@ app.post('/schedule', async(req, res) => {
     const query = 'SELECT users.name, users.lastName, schedules.weekDay, schedules.startDayTime, schedules.endDayTime, schedules.duration, schedules.Subject FROM schedules JOIN users ON schedules.teacherId = users.userName WHERE InstitutionCode = ? AND grade = ?';
     try{
         const [result] = await connection.execute(query, [code, grade]);
-        console.log([result]);
         return res.status(200).json(result);
     }catch(error){
         console.error(error);
+    }
+});
+app.post('/addtask', async(req, res) => {
+    const {code, user} = req.body;
+    console.log(req.body);
+    const query = 'SELECT task.dayDate, task.dayTime, task.state, task.teacherCode, task.InstitutionCode, usersTask.title FROM task JOIN usersTask ON task.id = usersTask.taskId WHERE teacherCode = ? AND institutionCode = ?';
+    try{
+        const [result] = await connection.execute(query, [user, code]);
+        return res.status(200).json(result);
+    }catch(error){
+        console.log(error);
     }
 });
 app.listen(PORT, '0.0.0.0', () => {

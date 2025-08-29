@@ -18,7 +18,7 @@ function Schedule (){
                     body: JSON.stringify({
                         type: '1',
                         grade: 'uni',
-                        code: code,
+                        code: 'SCHL04',
                     })
                 });
                 if(response.status === 200){
@@ -35,9 +35,7 @@ function Schedule (){
         };
         requestSchedule();
     }, [code]);
-    const total = scheduleDate.reduce(
-        (counter, hour) => counter + parseInt(hour.duration, 10), 0
-    );
+    const total = scheduleDate.reduce((counter, hour) => counter + parseInt(hour.duration, 10), 0);
     const counterCells = initialCells - total;
     const colors = ["#fdb15a", "#ff67c9", "#00c6c3", "#7b88f2", "#3dd99b", "#ff8984", "#b881f8"];
     let useSubjects = [];
