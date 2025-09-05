@@ -38,7 +38,9 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    padding: 1vw;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
     background-color: #0b1437;
     transition: transform 0.3s ease;
 }
@@ -103,16 +105,18 @@
 .State-container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 2vh;
+    justify-content: end;
+    align-items: center;
 }
 .State-span{
     font-size: 2.4vh;
+    padding-right: 11.5vh;
 }
 .Circle-state{
-    height: 3vh;
-    width: 3vh;
-    border-radius: 50%;
+    height: 13vh;
+    width: 0.5vh;
+    border-top-right-radius: 2vh;
+    border-bottom-right-radius: 2vh;
     cursor: pointer;
 }
 .Info-container{

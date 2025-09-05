@@ -5,6 +5,7 @@ import CreateUser from './components/CreateUser.js';
 import Dashboard from './pages/DashboardPage.js';
 import Schedule from './components/schedule.js';
 import ToDoList from './components/toDoList.js';
+import AddTask from './components/addTask.js'
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
             </Route>
             <Route path='/dashboard/' element={<Dashboard/>}>
               <Route path='schedule' element={<Schedule/>}/>
-              <Route path='task' element={<ToDoList/>}/>
+              <Route path='task' element={<ToDoList/>}>
+                <Route path='addTask' element={<AddTask/>}/>
+              </Route>
             </Route>
           </Routes>
         </header>

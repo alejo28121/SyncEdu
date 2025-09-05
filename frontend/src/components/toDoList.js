@@ -3,6 +3,7 @@ import { jwtDecode } from 'jwt-decode'
 import { useEffect, useState } from 'react'
 import addIcon from '../assets/add_icon.svg'
 import checkIcon from '../assets/check.svg'
+import { Outlet, useNavigate} from 'react-router-dom'
 
 const checkItems = ['option 1', 'option 2',];
 
@@ -12,6 +13,7 @@ function ToDoList(){
     const user = dates.user;
     const [checkItemsState, setCheckItemsState] = useState([]);
     const [listData, setListData] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         setCheckItemsState(new Array(checkItems.length).fill(false));
     }, [checkItems]);
@@ -51,7 +53,7 @@ function ToDoList(){
                     const title = listData[index].title;
                     const stateColors = {
                         "Pendiente" : "#F93943",
-                        "En progreso" : "#fdb15a",
+                        "En progreso" : "#f9f871",
                         "Finalizado" : "#00b76a"
                     };
                     return(
@@ -78,10 +80,13 @@ function ToDoList(){
                         </div>
                     )
                 })}
+                <Outlet/>
             </div>
             <div className='Info-container'>
                 <div className='Button-container'>
-                    <button className='Button-add'><img className='Add-icon' src={addIcon}></img></button>
+                    <button className='Button-add' onClick={() => {
+                        navigate('/dashboard/task/addTask');
+                    }}><img className='Add-icon' src={addIcon}></img></button>
                 </div>
             </div>
         </div>
