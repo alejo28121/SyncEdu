@@ -14,7 +14,7 @@ function Login(){
     const sendDates = async (e) => {
         e.preventDefault();
         try{
-            const response = await fetch('http://localhost:5000/login', {
+            const response = await fetch(`http://${process.env.REACT_APP_BACKEND_URL}:${process.env.REACT_APP_BACKEND_PORT}/login`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

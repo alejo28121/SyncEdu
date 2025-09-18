@@ -20,7 +20,7 @@ function ToDoList(){
     useEffect(() => {
         const requestList = async () => {
             try{
-                const response = await fetch('http://localhost:5000/addtask', {
+                const response = await fetch(`http://${process.env.REACT_APP_BACKEND_URL}:${process.env.REACT_APP_BACKEND_PORT}/addtask`, {
                     method: 'POST',
                     headers: {
                         'content-type' : 'application/json',

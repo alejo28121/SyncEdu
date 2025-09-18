@@ -7,7 +7,7 @@ const mail = require('@sendgrid/mail');
 const {v4: uuidv4} = require('uuid');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
@@ -107,7 +107,7 @@ app.post('/create-user', (req, res) => {
                 subject: 'Verificacion de correo',
                 dynamic_template_data: {
                     Sender_Name: name,
-                    link: `http://localhost:5000/verificate-email?token=${token}`,
+                    link: `http://${process.env.URL}:${process.env.PORT}/verificate-email?token=${token}`,
                 }
             };
             mail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -180,6 +180,6 @@ app.post('/addtask', async(req, res) => {
         console.log(error);
     }
 });
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, process.env.URL, () => {
     console.log('escuchando');
 });

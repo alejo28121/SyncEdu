@@ -5,7 +5,7 @@ import scheduleIcon from '../assets/Schedule_sidebar.svg';
 import ligth from '../assets/light_mode.svg';
 import toDoIcon from '../assets/To-do-list.svg';
 import { useState, useEffect } from 'react';
-import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 function Dashboard(){
     const dates = jwtDecode(localStorage.getItem('token'));

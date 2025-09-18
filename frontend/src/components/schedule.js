@@ -10,7 +10,7 @@ function Schedule (){
     useEffect(() => {
             const requestSchedule = async () => {
             try{
-                const response = await fetch('http://localhost:5000/schedule', {
+                const response = await fetch(`http://${process.env.REACT_APP_BACKEND_URL}:${process.env.REACT_APP_BACKEND_PORT}/schedule`, {
                     method: 'POST',
                     headers: {
                         'content-type' : 'application/json',
