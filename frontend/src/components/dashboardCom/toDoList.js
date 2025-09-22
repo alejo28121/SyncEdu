@@ -1,0 +1,95 @@
+import '../../assets/dashboardStyles/toDoList.css'
+import { jwtDecode } from 'jwt-decode'
+import { useEffect, useState } from 'react'
+import addIcon from '../../assets/icons/add_icon.svg'
+import checkIcon from '../../assets/icons/check.svg'
+import { Outlet, useNavigate} from 'react-router-dom'
+
+const checkItems = ['option 1', 'option 2',];
+
+function ToDoList(){
+    const dates = jwtDecode(localStorage.getItem('token'));
+    const code = dates.institution;
+    const user = dates.user;
+    const [checkItemsState, setCheckItemsState] = useState([]);
+    const [listData, setListData] = useState([]);
+    const navigate = useNavigate();
+    useEffect(() => {
+        setCheckItemsState(new Array(checkItems.length).fill(false));
+    }, [checkItems]);
+    useEffect(() => {
+        const requestList = async () => {
+            try{
+                const response = await fetch(`http://${process.env.REACT_APP_BACKEND_URL}:${process.env.REACT_APP_BACKEND_PORT}/addtask`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type' : 'application/json',
+                    },
+                    body: JSON.stringify({
+                        code: code,
+                        user: user,
+                    })
+                });
+                if(response.status === 200){
+                    const list = await response.json();
+                    console.log(list);
+                    setListData(list);
+                }
+            }
+            catch(error){
+                console.log('usuario error en la solicitud');
+            }
+        };
+        requestList();
+    }, [code]);
+    return(
+        <div className='Main-container-list'>
+            <div className='List-container'>
+                {listData.map((item, index) => {
+                    const itemState = listData[index].state;
+                    const dateOne = listData[index].dayDate;
+                    const charIndex = dateOne.indexOf("T");
+                    const dateResult = dateOne.substring(0, charIndex);
+                    const title = listData[index].title;
+                    const stateColors = {
+                        "Pendiente" : "#F93943",
+                        "En progreso" : "#f9f871",
+                        "Finalizado" : "#00b76a"
+                    };
+                    return(
+                        <div className='List-item'>
+                            <div key={index} className='Check-div' onClick={() => {
+                                const newCheck = [... checkItemsState];
+                                newCheck[index] = !checkItemsState[index];
+                                setCheckItemsState(newCheck);
+                            }}>
+                                <div className={`Circle-check${checkItemsState[index] ? 'ed' : ' '}`}>
+                                    <img className={`img-check${checkItemsState[index] ? 'ed' : ' '}`} src={checkIcon}></img>
+                                </div>
+                            </div>
+                            <div className='Info-task-container'>
+                                <span className='Date-span'>{dateResult}</span>
+                                <h4 className='Title-task'>{title}</h4>
+                            </div>
+                            <div className='State-container'>
+                                <span className='State-span'>{itemState}</span>
+                                <div className='Circle-state' style={{
+                                    backgroundColor : stateColors[itemState]
+                                }}></div>
+                            </div>
+                        </div>
+                    )
+                })}
+                <Outlet/>
+            </div>
+            <div className='Info-container'>
+                <div className='Button-container'>
+                    <button className='Button-add' onClick={() => {
+                        navigate('/dashboard/task/addTask');
+                    }}><img className='Add-icon' src={addIcon}></img></button>
+                </div>
+            </div>
+        </div>
+    );
+}
+export default ToDoList;

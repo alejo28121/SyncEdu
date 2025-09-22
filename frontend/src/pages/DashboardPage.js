@@ -1,9 +1,9 @@
 import {jwtDecode} from 'jwt-decode';
-import '../assets/Dashboard.css';
-import search from '../assets/search.svg';
-import scheduleIcon from '../assets/Schedule_sidebar.svg';
-import ligth from '../assets/light_mode.svg';
-import toDoIcon from '../assets/To-do-list.svg';
+import '../assets/dashboardStyles/Dashboard.css';
+import search from '../assets/icons/search.svg';
+import scheduleIcon from '../assets/icons/Schedule_sidebar.svg';
+import ligth from '../assets/icons/light_mode.svg';
+import toDoIcon from '../assets/icons/To-do-list.svg';
 import { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 

@@ -1,11 +1,12 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import RenderAuth from './pages/AuthPage.js';
-import Login from './components/SingIn.js';
-import CreateUser from './components/CreateUser.js';
+import Login from './components/webCom/SingIn.js';
+import CreateUser from './components/webCom/CreateUser.js';
 import Dashboard from './pages/DashboardPage.js';
-import Schedule from './components/schedule.js';
-import ToDoList from './components/toDoList.js';
-import AddTask from './components/addTask.js'
+import Schedule from './components/dashboardCom/schedule.js';
+import ToDoList from './components/dashboardCom/toDoList.js';
+import AddTask from './components/dashboardCom/addTask.js'
+import LandingPage from './pages/landingPage.js';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Routes>
+            <Route path='/' element={<LandingPage/>}/>
             <Route path="/auth/" element={<RenderAuth/>}>
               <Route path="login" element={<Login/>}/>
               <Route path='register' element={<CreateUser/>}/>
