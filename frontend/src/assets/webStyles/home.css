@@ -1,0 +1,80 @@
+.Home-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    overflow-y: visible;
+    padding-bottom: 2rem;
+    margin-top: 12vh;
+    background: #6320EE;
+    background: linear-gradient(180deg,rgba(99, 32, 238, 1) 5%, rgba(0, 103, 255, 1) 54%, rgba(253, 247, 255, 1) 99%);
+}
+.Left-content{
+    width: calc(100vw / 2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    animation: float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    from { 
+        transform: translateY(0px); 
+    }
+    to{ 
+        transform: translateY(20px); 
+    }
+}
+.Presentation-one{
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10vw;
+}
+.Title-one{
+    font-size: 2.5rem;
+}
+.Text-one{
+    line-height: 1.8;
+}
+.Presentation-two{
+    position: absolute;
+    left: 100vw;
+}
+.Btn-content{
+    width: 8vw;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffbf40;
+    border-radius: 3vh;
+}
+.btn-one{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+.Right-content{
+    width: calc(100vw / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+.Bgmobile{
+    width: 50vw;
+    height: auto;
+    position: relative;
+    margin-bottom: 1rem;
+}
+.BgImg{
+    z-index: 10;
+    width: 21vw;
+    height: auto;
+    position: absolute;
+    top: 46vh;
+    margin-bottom: 1rem;
+}
+
