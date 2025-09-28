@@ -1,15 +1,13 @@
-FROM node:18
-
+# Etapa 1: Build de React
+FROM node:18 AS build
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm install
-
 COPY . .
+RUN npm run build
 
-# Permisos de ejecución
-RUN chmod +x node_modules/.bin/react-scripts
-
-EXPOSE 3000
-
-CMD ["npm", "start", "--", "--host", "0.0.0.0"]
+# Etapa 2: Servir con Nginx
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
