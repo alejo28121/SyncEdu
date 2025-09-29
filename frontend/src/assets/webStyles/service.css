@@ -1,6 +1,6 @@
 .Service-content{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: #FDF7FF;
     background: linear-gradient(180deg,rgba(253, 247, 255, 1), rgba(0, 103, 255, 1) 44%, rgba(99, 32, 238, 1) 84%);
     display: flex;
@@ -29,7 +29,7 @@
     color: #fdf7ff;
 }
 .Left-contentT{
-    width: calc(100vw / 2);
+    width: calc(100% / 2);
     height: 50vh;
     display: flex;
     flex-direction: row;
@@ -38,7 +38,7 @@
     line-height: 1.8;
 }
 .Right-twoT{
-    width: calc(100vw / 2);
+    width: calc(100% / 2);
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -66,4 +66,18 @@
     border: none;
     color: #FDF7FF;
     font-weight: 700;
+}
+@media (min-width: 940px) and (max-width: 1065px){
+    .Service-title{
+        font-size: 2rem;
+    }
+    .Service-text{
+        font-size: 1.1rem;
+    }
+    .btn-form{
+        width: 9vw;
+        height: 5vh;
+        font-size: 2vh;
+        font-weight: 600;
+    }
 }

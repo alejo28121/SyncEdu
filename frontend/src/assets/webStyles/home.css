@@ -2,16 +2,17 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: auto;
     overflow-y: visible;
+    overflow-x: hidden;
     padding-bottom: 2rem;
     margin-top: 12vh;
     background: #6320EE;
     background: linear-gradient(180deg,rgba(99, 32, 238, 1) 5%, rgba(0, 103, 255, 1) 54%, rgba(253, 247, 255, 1) 99%);
 }
 .Left-content{
-    width: calc(100vw / 2);
+    width: calc(100% / 2);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,7 +41,8 @@
 }
 .Presentation-two{
     position: absolute;
-    left: 100vw;
+    left: 0;
+    transform: translateX(200%);
 }
 .Btn-content{
     width: 8vw;
@@ -57,14 +59,14 @@
     font-weight: 600;
 }
 .Right-content{
-    width: calc(100vw / 2);
+    width: calc(100% / 2);
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
 }
 .Bgmobile{
-    width: 50vw;
+    width: 100%;
     height: auto;
     position: relative;
     margin-bottom: 1rem;
@@ -74,7 +76,17 @@
     width: 21vw;
     height: auto;
     position: absolute;
-    top: 46vh;
+    top: 46%;
     margin-bottom: 1rem;
 }
-
+@media (min-width: 940px) and (max-width: 1065px){
+    .Home-content{
+        margin-top: 20vh;
+    }
+    .Title-one{
+        font-size: 2.4rem;
+    }
+    .BgImg{
+        top: 40%;
+    }
+}

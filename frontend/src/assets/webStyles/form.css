@@ -38,3 +38,18 @@
     color: #fff;
     font-weight: 700;
 }
+@media (min-width: 940px) and (max-width: 1065px){
+    .Title-content-form{
+        font-size: 2vh;
+    }
+    .Form-content{
+        width: 30vw;
+        height: 55vh;
+    }
+    .Input-name, 
+    .Input-email,
+    .Input-rol{
+        width: 20vw;
+        height: 4vh;
+    }
+}

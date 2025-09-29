@@ -20,9 +20,6 @@ function AboutContent(){
                     y disfrutar de una gestión académica más ágil, organizada y eficiente.
                 </p>
             </div>
-            <div className='Back-content-two'>
-                <img className='Back-img-two' src={BackImg}></img>
-            </div>
         </div>
     );
 }
