@@ -67,20 +67,6 @@
     color: #FDF7FF;
     font-weight: 700;
 }
-.Menu-containerD{
-    position: absolute;
-    height: 40vh;
-    width: 50vw;
-    top: 1vh;
-    right: 3%;
-    background-color: #fdf7ff;
-    color: rgb(53, 53, 53);
-    display: none;
-    flex-direction: column;
-    padding: 3vh;
-    box-sizing: border-box;
-    z-index: 400;
-}
 @media (min-width: 940px) and (max-width: 1065px){
     .Service-title{
         font-size: 2rem;

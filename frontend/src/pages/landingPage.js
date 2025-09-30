@@ -3,10 +3,17 @@ import HomeContent from '../components/webCom/home'
 import AboutContent from '../components/webCom/about'
 import ServiceContent from '../components/webCom/Service'
 import MenuIcon from '../assets/icons/menu_la.svg'
+import HomeIcon from '../assets/icons/home_icon.svg'
+import AboutIcon from '../assets/icons/info_icon.svg'
+import ServiceIcon from '../assets/icons/service_icon.svg'
+import ContactIcon from '../assets/icons/contacts_icon.svg'
+import CloseIcon from '../assets/icons/close_icon.svg'
+import LoginIcon from '../assets/icons/login_icon.svg'
 import { useState, useEffect } from 'react';
 
 function LandingPage(){
     const [scrollState, setScrollState] = useState(false);
+    const [menuState, setMenuState] = useState(false);
     useEffect(() =>{
         const handleScroll = () => {
             setScrollState(window.scrollY);
@@ -23,22 +30,25 @@ function LandingPage(){
                     </a>
                 </div>
                 <div className='Menu-container'>
-                    <img className='Menu-icon' src={MenuIcon}></img>
+                    <img className='Menu-icon' style={menuState ? {zIndex : 600} : {}} src={MenuIcon} onClick={() => {
+                        setMenuState(!menuState);
+                    }}></img>
                 </div>
-                <div className='Menu-containerD'>
-                    <div id='list-content'>
+                <div className={`Menu-containerD${menuState ? 'O' : ''}`}>
+                    <div id='list-contentM'>
+                        <img src={HomeIcon}></img>
                         <a>Inicio</a>
                     </div>
-                    <div id='list-content'>
+                    <div id='list-contentM'>
                         <a>Nosotros</a>
                     </div>
-                    <div id='list-content'>
+                    <div id='list-contentM'>
                         <a>Servicios</a>
                     </div>
-                    <div id='list-content'>
+                    <div id='list-contentM'>
                         <a>Contacto</a>
                     </div >
-                    <div id='list-content'>
+                    <div id='list-contentM'>
                         <a>Login</a>
                     </div>
                 </div>
