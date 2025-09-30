@@ -2,7 +2,7 @@ import '../assets/webStyles/web.css'
 import HomeContent from '../components/webCom/home'
 import AboutContent from '../components/webCom/about'
 import ServiceContent from '../components/webCom/Service'
-
+import MenuIcon from '../assets/icons/menu_la.svg'
 import { useState, useEffect } from 'react';
 
 function LandingPage(){
@@ -16,6 +16,33 @@ function LandingPage(){
     }, []);
     return(
         <div className="Main-content">
+            <div className='Header-contentB'>
+                <div className='titleB-content'>
+                    <a>
+                        <span className='Title'>SYNCEDU</span>
+                    </a>
+                </div>
+                <div className='Menu-container'>
+                    <img className='Menu-icon' src={MenuIcon}></img>
+                </div>
+                <div className='Menu-containerD'>
+                    <div id='list-content'>
+                        <a>Inicio</a>
+                    </div>
+                    <div id='list-content'>
+                        <a>Nosotros</a>
+                    </div>
+                    <div id='list-content'>
+                        <a>Servicios</a>
+                    </div>
+                    <div id='list-content'>
+                        <a>Contacto</a>
+                    </div >
+                    <div id='list-content'>
+                        <a>Login</a>
+                    </div>
+                </div>
+            </div>
             <div className={`Header-content${
                 scrollState >= 38 && scrollState <= 558 || scrollState >= 1395 ?
                     '-scrolled'

@@ -18,6 +18,24 @@
     z-index: 200;
     position: fixed;
 }
+.Header-contentB{
+    background: #6320EE;
+    display: none;
+    align-items: center;
+    flex-direction: row;
+    padding: 2vh;
+}
+.titleB-content{
+    width: 50%;
+}
+.Menu-container{
+    display: flex;
+    justify-content: end;
+    width: 50%;
+}
+.Menu-icon{
+    height: 4vh;
+}
 .Header-content-two{
     width: 94vw;
     height: 10vh;
@@ -102,4 +120,22 @@
     flex-direction: column;
     background: #6320EE;
     box-sizing: border-box;
+}
+@media (max-width: 850px){
+    .Header-content{
+        display: none;
+        background-color: black;
+    }
+    .Header-content-two{
+        display: none;
+    }
+    .Header-content-scrolled{
+        display: none;
+    }
+    .Header-content-scrolledTwo{
+        display: none;
+    }
+    .Header-contentB{
+        display: flex;
+    }
 }

@@ -67,6 +67,20 @@
     color: #FDF7FF;
     font-weight: 700;
 }
+.Menu-containerD{
+    position: absolute;
+    height: 40vh;
+    width: 50vw;
+    top: 1vh;
+    right: 3%;
+    background-color: #fdf7ff;
+    color: rgb(53, 53, 53);
+    display: none;
+    flex-direction: column;
+    padding: 3vh;
+    box-sizing: border-box;
+    z-index: 400;
+}
 @media (min-width: 940px) and (max-width: 1065px){
     .Service-title{
         font-size: 2rem;
@@ -79,5 +93,40 @@
         height: 5vh;
         font-size: 2vh;
         font-weight: 600;
+    }
+}
+@media (max-width: 850px){
+    .Service-content{
+        padding-top: 2vh;
+        flex-direction: column;
+        height: 80vh;
+    }
+    .Left-contentT{
+        width: 100%;
+        padding-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Service-title{
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    .Text-contentS{
+        width: 100vw;
+        padding: 2vh;
+        box-sizing: border-box;
+    }
+    .Service-text{
+        font-size: 1.2rem;
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+    .btn-form{
+        width: 30vw;
+        height: 6vh;
+        font-size: 1.2rem;
     }
 }

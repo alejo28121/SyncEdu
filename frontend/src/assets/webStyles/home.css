@@ -9,7 +9,7 @@
     padding-bottom: 2rem;
     margin-top: 12vh;
     background: #6320EE;
-    background: linear-gradient(180deg,rgba(99, 32, 238, 1) 5%, rgba(0, 103, 255, 1) 54%, rgba(253, 247, 255, 1) 99%);
+    background: linear-gradient(180deg,rgba(99, 32, 238, 1) 5%, rgba(0, 103, 255, 1) 54%, rgba(253, 247, 255, 1) 95%);
 }
 .Left-content{
     width: calc(100% / 2);
@@ -56,6 +56,7 @@
 .btn-one{
     text-decoration: none;
     color: #fff;
+    display: flex;
     font-weight: 600;
 }
 .Right-content{
@@ -88,5 +89,52 @@
     }
     .BgImg{
         top: 40%;
+    }
+}
+@media (max-width: 850px){
+    .Home-content{
+        margin-top: 5vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 55vh;
+    }
+    .Title{
+        font-size: 2.3vh;
+    }
+    .Left-content{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .Presentation-one{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2vh;
+    }
+    .Btn-content{
+        width: 30vw;
+        height: 5vh;
+        font-size: 1.2rem;
+    }
+    .Right-content{
+        width: 100%;
+    }
+    .Title-one{
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    .Text-one{
+        font-size: 1.2rem;
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+    .Bgmobile{
+        display: none;
+    }
+    .BgImg{
+        display: none;
     }
 }

@@ -73,3 +73,31 @@
         font-size: 1rem;
     }
 }
+@media (max-width: 850px){
+    .About-content{
+        height: 75vh;
+    }
+    .Welcome-content{
+        margin-top: 5vh;
+    }
+    .Welcome-title{
+        margin-top: 5vh;
+        font-size: 2.2rem;
+    }
+    .Welcome-img{
+        width: 75vw;
+    }
+    .Back-img{
+        width: 45vw;
+    }
+    .Text-content{
+        width: 75vw;
+    }
+    .Text-about{
+        font-size: 1.2rem;
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+}

@@ -53,3 +53,8 @@
         height: 4vh;
     }
 }
+@media (max-width: 850px){
+    .Form-content{
+        display: none;
+    }
+}
