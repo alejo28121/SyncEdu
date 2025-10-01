@@ -4,7 +4,7 @@ import '../../assets/webStyles/about.css'
 
 function AboutContent(){
     return(
-        <div className='About-content'>
+        <div className='About-content' id='about'>
                 <h1 className='Welcome-title'>Bienvenido a SyncEdu</h1>
             <div className='Welcome-content'>
                 <img className='Welcome-img' src={WelcomeImg}></img>

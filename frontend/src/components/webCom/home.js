@@ -5,7 +5,7 @@ import '../../assets/webStyles/home.css'
 function HomeContent(){
     return(
         <div className='Home-content'>
-            <div className='Left-content'>
+            <div className='Left-content' id='home'>
                 <div className="Presentation-one">
                     <h1 className='Title-one'>Simplificamos la gestión</h1>
                     <p className='Text-one'>Con SyncEdu centralizas procesos académicos y

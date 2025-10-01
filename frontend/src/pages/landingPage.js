@@ -9,7 +9,8 @@ import ServiceIcon from '../assets/icons/service_icon.svg'
 import ContactIcon from '../assets/icons/contacts_icon.svg'
 import CloseIcon from '../assets/icons/close_icon.svg'
 import LoginIcon from '../assets/icons/login_icon.svg'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import {Link} from 'react-scroll'
 
 function LandingPage(){
     const [scrollState, setScrollState] = useState(false);
@@ -30,25 +31,29 @@ function LandingPage(){
                     </a>
                 </div>
                 <div className='Menu-container'>
-                    <img className='Menu-icon' style={menuState ? {zIndex : 600} : {}} src={MenuIcon} onClick={() => {
+                    <img className='Menu-icon' style={menuState ? {zIndex : 600} : {}} src={menuState ? CloseIcon : MenuIcon} onClick={() => {
                         setMenuState(!menuState);
                     }}></img>
                 </div>
                 <div className={`Menu-containerD${menuState ? 'O' : ''}`}>
                     <div id='list-contentM'>
                         <img src={HomeIcon}></img>
-                        <a>Inicio</a>
+                        <Link to="home" smooth={true} offset={-120} duration={500}>Inicio</Link>
                     </div>
                     <div id='list-contentM'>
-                        <a>Nosotros</a>
+                        <img src={AboutIcon}></img>
+                        <Link to="about" smooth={true} offset={-120} duration={500}>Nosotros</Link>
                     </div>
                     <div id='list-contentM'>
-                        <a>Servicios</a>
+                        <img src={ServiceIcon}></img>
+                        <Link to="services" smooth={true} offset={-120} duration={500}>Servicios</Link>
                     </div>
                     <div id='list-contentM'>
+                        <img src={ContactIcon}></img>
                         <a>Contacto</a>
                     </div >
                     <div id='list-contentM'>
+                        <img src={LoginIcon}></img>
                         <a>Login</a>
                     </div>
                 </div>
@@ -69,17 +74,17 @@ function LandingPage(){
                     </a>
                 </div>
                 <div id='list-content'>
-                    <a>Inicio</a>
+                    <Link to="home" smooth={true} offset={-120} duration={500}>Inicio</Link>
                 </div>
                 <div id='list-content'>
-                    <a>Nosotros</a>
+                    <Link to="about" smooth={true} offset={-120} duration={500}>Nosotros</Link>
                 </div>
                 <div id='list-content'>
-                    <a>Servicios</a>
+                    <Link to="services" smooth={true} offset={-120} duration={500}>Servicios</Link>
                 </div>
                 <div id='list-content'>
-                    <a>Contacto</a>
-                </div >
+                    <Link>Contacto</Link>
+                </div>
                 <div id='list-content'>
                     <a>Login</a>
                 </div>

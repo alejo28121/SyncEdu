@@ -114,6 +114,10 @@
     position: relative;
     font-size: 2vh;
     font-weight: 900;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6vw;
 }
 .Title-content{
     width: calc(100vw / 6);
@@ -138,13 +142,13 @@
     animation: expand 0.1s ease-in forwards;
     top: 1vh;
     right: 3%;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
     box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.4);
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 3vh;
+    padding-top: 4vh;
     box-sizing: border-box;
     border-radius: 2vh;
     z-index: 400;

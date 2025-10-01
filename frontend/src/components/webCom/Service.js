@@ -4,7 +4,7 @@ import Form from '../../components/webCom/form'
 function ServiceContent(){
     return(
         <div className="Service-content">
-            <div className='Left-contentT'>
+            <div className='Left-contentT' id='services'>
                 <div className='Text-contentS'>
                     <h1 className="Service-title">Servicios en construcción</h1>
                     <p className="Service-text">
