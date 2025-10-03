@@ -1,7 +1,9 @@
 import '../../assets/webStyles/service.css'
 import Form from '../../components/webCom/form'
+import { useState } from 'react'
 
 function ServiceContent(){
+    const [formState, setFormState] = useState(false);
     return(
         <div className="Service-content">
             <div className='Left-contentT' id='services'>
@@ -13,11 +15,13 @@ function ServiceContent(){
                         Por eso queremos saber tu opinión.
                     </p>
                     <div className="Survey-content">
-                        <button className="btn-form">Compartir mi idea</button>
+                        <button className="btn-form" onClick={() => {
+                            setFormState(!formState);
+                        }}>Compartir mi idea</button>
                     </div>
                 </div>
             </div>
-            <div className="Right-twoT">
+            <div className="Right-twoT" style={formState ? {display : "flex"} : {display : "none"}}>
                 <Form></Form>
             </div>
         </div>

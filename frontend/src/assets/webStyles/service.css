@@ -5,6 +5,7 @@
     background: linear-gradient(180deg,rgba(253, 247, 255, 1), rgba(0, 103, 255, 1) 44%, rgba(99, 32, 238, 1) 84%);
     display: flex;
     flex-direction: row;
+    justify-content: center;
     color: rgb(53, 53, 53);
     padding-top: 45vh;
 }
@@ -40,7 +41,6 @@
 .Right-twoT{
     width: calc(100% / 2);
     height: fit-content;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

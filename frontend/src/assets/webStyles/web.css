@@ -108,6 +108,7 @@
     margin: 2vh;
     position: relative;
     font-weight: 700;
+    cursor: pointer;
 }
 #list-contentM{
     margin: 2vh;
@@ -118,6 +119,7 @@
     flex-direction: row;
     align-items: center;
     gap: 6vw;
+    cursor: pointer;
 }
 .Title-content{
     width: calc(100vw / 6);
