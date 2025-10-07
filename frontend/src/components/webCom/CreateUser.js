@@ -14,7 +14,7 @@ function CreateUser(){
     });
     useEffect(() => {
         if(stepValue === 3){
-            fetch(`http://${process.env.REACT_APP_BACKEND_URL}:${process.env.REACT_APP_BACKEND_PORT}/create-user`, {
+            fetch(`http://${process.env.REACT_APP_BACKEND_URL}/create-user`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

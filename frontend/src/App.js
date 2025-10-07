@@ -7,6 +7,7 @@ import Schedule from './components/dashboardCom/schedule.js';
 import ToDoList from './components/dashboardCom/toDoList.js';
 import AddTask from './components/dashboardCom/addTask.js'
 import LandingPage from './pages/landingPage.js';
+import TemporalView from './components/webCom/temporalPt.js';
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
         <header className="App-header">
           <Routes>
             <Route path='/' element={<LandingPage/>}/>
-            <Route path="/auth/" element={<RenderAuth/>}>
-              <Route path="login" element={<Login/>}/>
+            <Route path="/auth/">
+              <Route path="login" element={<TemporalView/>}/>
+            </Route>
+            <Route path="/authdev/" element={<RenderAuth/>}>
+              <Route path="logindev" element={<Login/>}/>
               <Route path='register' element={<CreateUser/>}/>
             </Route>
             <Route path='/dashboard/' element={<Dashboard/>}>

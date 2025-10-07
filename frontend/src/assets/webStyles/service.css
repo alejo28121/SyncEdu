@@ -85,7 +85,9 @@
     .Service-content{
         padding-top: 2vh;
         flex-direction: column;
-        height: 80vh;
+        height: fit-content;
+        display: flex;
+        align-items: center;
     }
     .Left-contentT{
         width: 100%;
@@ -93,6 +95,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        animation: none;
+    }
+    .Right-twoT{
+        height: fit-content;
+        width: 100vw;
+        animation: none;
     }
     .Service-title{
         font-size: 2.2rem;

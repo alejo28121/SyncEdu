@@ -1,6 +1,6 @@
 .Main-content{
     width: 100vw;
-    height: auto;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     color: #fff;
@@ -109,6 +109,9 @@
     position: relative;
     font-weight: 700;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #list-contentM{
     margin: 2vh;
@@ -117,7 +120,9 @@
     font-weight: 900;
     display: flex;
     flex-direction: row;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6vw;
     cursor: pointer;
 }
@@ -141,7 +146,7 @@
 }
 .Menu-containerDO{
     position: absolute;
-    animation: expand 0.1s ease-in forwards;
+    animation: expandOne 0.1s ease-in forwards;
     top: 1vh;
     right: 3%;
     background-color: rgba(0, 0, 0, 0.3);
@@ -155,7 +160,7 @@
     border-radius: 2vh;
     z-index: 400;
 }
-@keyframes expand{
+@keyframes expandOne{
     from{
         height: 0vh;
         width: 0vw;
