@@ -7,13 +7,13 @@ function formOne(){
                 <h1>Comparte tus ideas</h1>
             </div>
             <div className='Name-content'>
-                <input className='Input-name' placeholder='Nombre'></input>
+                <input className='Input-name' placeholder='Nombre' required></input>
             </div>
             <div className='Email-content'>
-                <input className='Input-email' placeholder='Correo electronico'></input>
+                <input className='Input-email' placeholder='Correo electronico' required></input>
             </div>
             <div className='Rol-content'>
-                <input className='Input-rol' list='Roles' placeholder='Selecciona tu rol:'></input>
+                <input className='Input-rol' list='Roles' placeholder='Selecciona tu rol:' required></input>
                 <datalist id='Roles'>
                     <option value="Estudiante"></option>
                     <option value="Docente"></option>

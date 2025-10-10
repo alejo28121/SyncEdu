@@ -27,7 +27,7 @@
     padding-right: 5vh;
 }
 .Title-form{
-    font-size: 2em;
+    font-size: 1.7em;
     text-align: center;
     color: #fff;
 }
@@ -94,11 +94,11 @@
         height: 4vh;
     }
 }
-@media (max-width: 850px){
+@media (max-width: 820px){
     .Form-content{
         display: flex;
         animation: expand 0.1s ease-in forwards;
-        height: 50vh;
+        height: 55vh;
         margin-top: 4vh;
         margin-bottom: 3vh;
         box-sizing: border-box;
@@ -111,7 +111,8 @@
         }
     }
     .Title-content-form{
-        font-size: 2vh;
+        font-size: 1.2rem;
+        text-align: center;
     }
     .Input-name, 
     .Input-email,
@@ -124,7 +125,7 @@
     }
     .Buttons{
         width: 28vw;
-        height: 6vh;
+        height: 5vh;
         font-weight: 800;
         font-size: 2vh;
     }

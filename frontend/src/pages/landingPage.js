@@ -36,25 +36,29 @@ function LandingPage(){
                     }}></img>
                 </div>
                 <div className={`Menu-containerD${menuState ? 'O' : ''}`}>
-                    <div id='list-contentM'>
-                        <img src={HomeIcon}></img>
-                        <Link to="home" smooth={true} offset={-120} duration={500}>Inicio</Link>
+                    <div className='Icons-container'>
+                        <img className='Burger-icon' src={HomeIcon}></img>
+                        <img className='Burger-icon' src={AboutIcon}></img>
+                        <img className='Burger-icon' src={ServiceIcon}></img>
+                        <img className='Burger-icon' src={ContactIcon}></img>
+                        <img className='Burger-icon' src={LoginIcon}></img>
                     </div>
-                    <div id='list-contentM'>
-                        <img src={AboutIcon}></img>
-                        <Link to="about" smooth={true} offset={-120} duration={500}>Nosotros</Link>
-                    </div>
-                    <div id='list-contentM'>
-                        <img src={ServiceIcon}></img>
-                        <Link to="services" smooth={true} offset={-120} duration={500}>Servicios</Link>
-                    </div>
-                    <div id='list-contentM'>
-                        <img src={ContactIcon}></img>
-                        <a>Contacto</a>
-                    </div >
-                    <div id='list-contentM'>
-                        <img src={LoginIcon}></img>
-                        <a>Login</a>
+                    <div className='List-containerM'>
+                        <div id='list-contentM'>
+                            <Link to="home" smooth={true} offset={-120} duration={500}>Inicio</Link>
+                        </div>
+                        <div id='list-contentM'>
+                            <Link to="about" smooth={true} offset={-120} duration={500}>Nosotros</Link>
+                        </div>
+                        <div id='list-contentM'>
+                            <Link to="services" smooth={true} offset={-120} duration={500}>Servicios</Link>
+                        </div>
+                        <div id='list-contentM'>
+                            <a>Contacto</a>
+                        </div >
+                        <div id='list-contentM'>
+                            <a>Login</a>
+                        </div>
                     </div>
                 </div>
             </div>
