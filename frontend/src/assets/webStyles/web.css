@@ -126,6 +126,23 @@
     gap: 6vw;
     cursor: pointer;
 }
+.Link-login{
+    text-decoration: none;
+    color: #fff;
+}
+.Link-login-scrolled{
+    text-decoration: none;
+    color: #fff;
+}
+.Link-login-two{
+    text-decoration: none;
+    transition: color 1s ease;
+    color: rgb(53, 53, 53);
+}
+.Link-login-scrolledTwo{
+    text-decoration: none;
+    color: rgb(53, 53, 53);
+}
 .Title-content{
     width: calc(100vw / 6);
     margin: 2vh;

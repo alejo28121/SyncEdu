@@ -10,7 +10,9 @@ import ContactIcon from '../assets/icons/contacts_icon.svg'
 import CloseIcon from '../assets/icons/close_icon.svg'
 import LoginIcon from '../assets/icons/login_icon.svg'
 import { useState, useEffect } from 'react'
-import {Link} from 'react-scroll'
+import {Link as ScrollLink} from 'react-scroll'
+import {Link as RouterLink} from 'react-router-dom'
+
 
 function LandingPage(){
     const [scrollState, setScrollState] = useState(false);
@@ -45,13 +47,13 @@ function LandingPage(){
                     </div>
                     <div className='List-containerM'>
                         <div id='list-contentM'>
-                            <Link to="home" smooth={true} offset={-120} duration={500}>Inicio</Link>
+                            <ScrollLink to="home" smooth={true} offset={-120} duration={500}>Inicio</ScrollLink>
                         </div>
                         <div id='list-contentM'>
-                            <Link to="about" smooth={true} offset={-120} duration={500}>Nosotros</Link>
+                            <ScrollLink to="about" smooth={true} offset={-120} duration={500}>Nosotros</ScrollLink>
                         </div>
                         <div id='list-contentM'>
-                            <Link to="services" smooth={true} offset={-120} duration={500}>Servicios</Link>
+                            <ScrollLink to="services" smooth={true} offset={-120} duration={500}>Servicios</ScrollLink>
                         </div>
                         <div id='list-contentM'>
                             <a>Contacto</a>
@@ -78,19 +80,28 @@ function LandingPage(){
                     </a>
                 </div>
                 <div id='list-content'>
-                    <Link to="home" smooth={true} offset={-120} duration={500}>Inicio</Link>
+                    <ScrollLink to="home" smooth={true} offset={-120} duration={500}>Inicio</ScrollLink>
                 </div>
                 <div id='list-content'>
-                    <Link to="about" smooth={true} offset={-120} duration={500}>Nosotros</Link>
+                    <ScrollLink to="about" smooth={true} offset={-120} duration={500}>Nosotros</ScrollLink>
                 </div>
                 <div id='list-content'>
-                    <Link to="services" smooth={true} offset={-120} duration={500}>Servicios</Link>
+                    <ScrollLink to="services" smooth={true} offset={-120} duration={500}>Servicios</ScrollLink>
                 </div>
                 <div id='list-content'>
-                    <Link>Contacto</Link>
+                    <ScrollLink>Contacto</ScrollLink>
                 </div>
                 <div id='list-content'>
-                    <a>Login</a>
+                    <RouterLink to='/auth/login' className={`Link-login${
+                        scrollState >= 38 && scrollState <= 558 || scrollState >= 1395 ?
+                            '-scrolled'
+                        : scrollState > 558 && scrollState <= 628 ? 
+                            '-two'
+                        :scrollState > 628 && scrollState <= 1360 ?
+                            '-scrolledTwo'
+                        :
+                            ' '
+                    }`}>Login</RouterLink>
                 </div>
             </div>
             <div className='Body'>

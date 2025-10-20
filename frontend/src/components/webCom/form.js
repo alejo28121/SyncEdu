@@ -1,6 +1,7 @@
 import '../../assets/webStyles/form.css'
 import FormIdeasM from '../webCom/formPresetation.js';
 import FormOne from '../webCom/formOne.js'
+import CheckList from './checkForm.js';
 import { useEffect, useState } from 'react';
 
 function FormIdeas(){
@@ -19,6 +20,10 @@ function FormIdeas(){
         }else if(stepForm === 2){
             return(
                 <FormIdeasM></FormIdeasM>
+            )
+        }else if(stepForm === 3){
+            return(
+                <CheckList></CheckList>
             )
         }
     }
